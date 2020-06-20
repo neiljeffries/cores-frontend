@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://localhost:8080/greeting-javaconfig"
+        url: "http://localhost:8080/api/greeting-javaconfig"
     }).then(function(data, status, jqxhr) {
        $('.greeting-id').append(data.id);
        $('.greeting-content').append(data.content);
@@ -20,6 +20,6 @@ $(document).ready(function() {
         },
         processData: false,
         type: 'POST',
-        url: 'http://localhost:8080/process'
+        url: 'http://localhost:8080/api/process'
     });
 });
