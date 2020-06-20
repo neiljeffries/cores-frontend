@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://localhost:8080/api/greeting-javaconfig"
+        url: "http://localhost:8080/api/greeting-javaconfig?name=Mike"
     }).then(function(data, status, jqxhr) {
        $('.greeting-id').append(data.id);
        $('.greeting-content').append(data.content);
@@ -10,16 +10,16 @@ $(document).ready(function() {
 
     $.ajax({
         contentType: 'application/json',
-        data: JSON.stringify({ "command": "on" }),
+        data: JSON.stringify({ spinich: "no" , icecream: "yes"}),
         dataType: 'json',
-        success: function(data){
-            app.log("post succeeded");
-        },
-        error: function(){
-            app.log("post failed");
-        },
         processData: false,
         type: 'POST',
-        url: 'http://localhost:8080/api/process'
+        url: 'http://localhost:8080/api/process',
+        success: function(data){
+            console.log("post succeeded");
+        },
+        error: function(e){
+            console.log(e);
+        },
     });
 });
